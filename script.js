@@ -1,3 +1,8 @@
+function displayResult(result){
+    const output=document.querySelector('.result');
+    output.innerHTML+= result;
+
+}
 function computerPlay(){
     let num = Math.random();
     let result ="";
@@ -10,59 +15,70 @@ function computerPlay(){
         return result;
     }
     else if(num<0.999){
-        result= "scissors";
+        result= "scissor";
         return result;
     }
 }
 function playRound(){
     let input =(this.textContent);
+    
     let result = computerPlay();
     let win ="w";
     let lose="l";
     let draw="d";
     if(input===result){
-        console.log("computer chose "+result+"\n its a tie");
+        displayResult("\n"+"computer chose "+result+"\n its a tie");
      return draw;
     }
-    else if(input==="rock" & result==="scissors"){
-        console.log("computer chose "+result+" \nyou win");
+    else if(input==="rock" & result==="scissor"){
+        displayResult("<br> computer chose "+result+" <br> you win");
         return win;
     }
     else if(input==="paper" & result==="rock"){
-        console.log("computer chose "+result+"\n you win");
+        displayResult("<br> computer chose "+result+" <br> you win");
         return win;
     }
-    else if(input==="scissors" & result==="paper"){
-        console.log("computer chose "+result+"\n you win");
+    else if(input==="scissor" & result==="paper"){
+        displayResult("<br> computer chose "+result+"<br>  you win");
         return win;
     }
     else{
-        console.log("computer chose "+result+"\n you lose");
+        displayResult("<br> computer chose "+result+"<br> you lose");
         return lose;
     }
+    
+    
 }
+
+
 
 function game(){
     let win=0;
     let lose=0;
     let draw=0;
-    let result="";
-    playRound();
-    // for(let i=0; i<5; i++){
-    // result= playRound();
-    // if(result==="w"){
-    //     win++;
-    // }
-    // else if(result==="l"){
-    //     lose++;
-    // }
-    // else {
-    //     draw++;
-    // }
-    // }
-    // console.log("you won "+win+" times. you lost "+lose+" times. game draw "+draw+" times.")
+    
+    const buttons = Array.from(document.querySelectorAll('.button'));
+    
+   for(let i=0; i<5; i++){
+   
+    const result=buttons.forEach(buttons => this.addEventListener('click',playRound));
+
+     if(result==="w"){
+        win++;
+    }
+    else if(result==="l"){
+        lose++;
+    }
+    else {
+        draw++;
+    }
+    }
+    displayResult("you won "+win+" times. you lost "+lose+" times. game draw "+draw+" times.")
 }
 
+const buttons = document.createElement('div');
+
+buttons.classList.add('buttons');
 
 const button1 = document.createElement('button');
 button1.textContent="rock";
@@ -74,11 +90,14 @@ const button3 = document.createElement('button');
 button3.textContent="scissor";
 button3.classList.add('button');
 const body = document.querySelector('.body');
-body.appendChild(button1);
-body.appendChild(button2);
-body.appendChild(button3);
-const buttons = Array.from(document.querySelectorAll('.button'));
-buttons.forEach(buttons => this.addEventListener('click',playRound));
+buttons.appendChild(button1);
+buttons.appendChild(button2);
+buttons.appendChild(button3);
+body.appendChild(buttons);
+const result= document.createElement('div');
+result.classList.add('result');
+body.appendChild(result);
+game();
 
    
 
