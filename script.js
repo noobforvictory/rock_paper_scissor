@@ -15,29 +15,29 @@ function computerPlay(){
     }
 }
 function playRound(){
-    let input =(prompt("enter rock or paper or scissors")).toLowerCase();
+    let input =(this.textContent);
     let result = computerPlay();
     let win ="w";
     let lose="l";
     let draw="d";
     if(input===result){
-        console.log(result+"\n its a tie");
+        console.log("computer chose "+result+"\n its a tie");
      return draw;
     }
     else if(input==="rock" & result==="scissors"){
-        console.log(result+" \nyou win");
+        console.log("computer chose "+result+" \nyou win");
         return win;
     }
     else if(input==="paper" & result==="rock"){
-        console.log(result+"\n you win");
+        console.log("computer chose "+result+"\n you win");
         return win;
     }
     else if(input==="scissors" & result==="paper"){
-        console.log(result+"\n you win");
+        console.log("computer chose "+result+"\n you win");
         return win;
     }
     else{
-        console.log(result+"\n you lose");
+        console.log("computer chose "+result+"\n you lose");
         return lose;
     }
 }
@@ -77,7 +77,9 @@ const body = document.querySelector('.body');
 body.appendChild(button1);
 body.appendChild(button2);
 body.appendChild(button3);
+const buttons = Array.from(document.querySelectorAll('.button'));
+buttons.forEach(buttons => this.addEventListener('click',playRound));
 
-    
+   
 
 
