@@ -62,4 +62,4 @@ function game(){
     }
     console.log("you won "+win+" times. you lost "+lose+" times. game draw "+draw+" times.")
 }
-game(
+game();
