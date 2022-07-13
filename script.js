@@ -58,7 +58,7 @@ function game(){
     let draw=0;
     
     const buttons = Array.from(document.querySelectorAll('.button'));
-    
+    // only want it to play 5 times
    for(let i=0; i<5; i++){
    
     const result = buttons.forEach(button => button.addEventListener('click',playRound));
