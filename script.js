@@ -27,7 +27,7 @@ function playRound(){
     let lose="l";
     let draw="d";
     if(input===result){
-        displayResult("\n"+"computer chose "+result+"\n its a tie");
+        displayResult("<br> computer chose "+result+"<br> its a tie");
      return draw;
     }
     else if(input==="rock" & result==="scissor"){
@@ -61,8 +61,7 @@ function game(){
     
    for(let i=0; i<5; i++){
    
-    const result=buttons.forEach(buttons => this.addEventListener('click',playRound));
-
+    const result = buttons.forEach(button => button.addEventListener('click',playRound));
      if(result==="w"){
         win++;
     }
