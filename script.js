@@ -58,9 +58,8 @@ function playRound(){
     }
     if(win+lose+draw===5){
         displayResult("<br>you won "+win+" times. you lost "+lose+" times. game draw "+draw+" times.");
-        }
-  
-}
+    }
+  }
 }
 
 
