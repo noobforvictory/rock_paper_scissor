@@ -19,61 +19,60 @@ function computerPlay(){
         return result;
     }
 }
+var num =1;
+var win =0;
+var lose=0;
+var draw=0;
 function playRound(){
-    let input =(this.textContent);
     
+    if(num<=5){
+        num++;
+        
+    let input =(this.textContent);
     let result = computerPlay();
-    let win ="w";
-    let lose="l";
-    let draw="d";
+    
     if(input===result){
         displayResult("<br> computer chose "+result+"<br> its a tie");
-     return draw;
+     draw++;
     }
     else if(input==="rock" & result==="scissor"){
         displayResult("<br> computer chose "+result+" <br> you win");
-        return win;
+        
+        win++;
     }
     else if(input==="paper" & result==="rock"){
         displayResult("<br> computer chose "+result+" <br> you win");
-        return win;
+         
+        win++;
     }
     else if(input==="scissor" & result==="paper"){
         displayResult("<br> computer chose "+result+"<br>  you win");
-        return win;
+        
+        win++;
     }
     else{
         displayResult("<br> computer chose "+result+"<br> you lose");
-        return lose;
+         
+        lose++;
+        
     }
-    
-    
+    if(win+lose+draw===5){
+        displayResult("<br>you won "+win+" times. you lost "+lose+" times. game draw "+draw+" times.");
+        }
+  
 }
+}
+
 
 
 
 function game(){
-    let win=0;
-    let lose=0;
-    let draw=0;
-    
     const buttons = Array.from(document.querySelectorAll('.button'));
-    // only want it to play 5 times
-   for(let i=0; i<5; i++){
-   
     const result = buttons.forEach(button => button.addEventListener('click',playRound));
-     if(result==="w"){
-        win++;
-    }
-    else if(result==="l"){
-        lose++;
-    }
-    else {
-        draw++;
-    }
-    }
-    displayResult("you won "+win+" times. you lost "+lose+" times. game draw "+draw+" times.")
+    
 }
+
+
 
 const buttons = document.createElement('div');
 
